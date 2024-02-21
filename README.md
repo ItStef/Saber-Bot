@@ -1,7 +1,7 @@
 # Saber-Bot
 A discord bot written in python.
 
-REQUIREMENTS TO RUN THE BOT:
+REQUIREMENTS TO RUN THE BOT:\n
 -Lavalink setup [https://github.com/lavalink-devs/Lavalink]
 -Lavasrc plugin for Lavalink [https://github.com/topi314/LavaSrc]
 -.env file for your tokens
