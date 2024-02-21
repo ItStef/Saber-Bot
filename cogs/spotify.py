@@ -16,6 +16,8 @@ class Spotify(commands.Cog):
     @commands.command()
     async def listening(self, ctx, user: discord.Member = None):
         user = user or ctx.author
+        
+        #Get the spotify result
         spotify_result = next((activity for activity in user.activities if isinstance(activity, discord.Spotify)), None)
 
         #If the user is not listening to spotify

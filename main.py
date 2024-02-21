@@ -15,26 +15,38 @@ bot = commands.Bot(command_prefix='.', intents = discord.Intents.all(), help_com
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord. Activity(type=discord.ActivityType.watching, name='The World Burn'))
+    try:
+        await bot.change_presence(activity=discord. Activity(type=discord.ActivityType.watching, name='The World Burn'))
+    except Exception as e:
+        print(e)
     print('Saber online')
     await bot.loop.create_task(setup_hook())
 
 #Loads all cogs
 async def load():
-    for filename in os.listdir('./cogs'):
-        if filename.endswith('.py'):
-            await bot.load_extension(f'cogs.{filename[:-3]}')
+    try:
+        for filename in os.listdir('./cogs'):
+            if filename.endswith('.py'):
+                await bot.load_extension(f'cogs.{filename[:-3]}')
+    except Exception as e:
+        print(e)
 
 #Connects to the Lavalink server
 async def setup_hook():
-    nodes = [wavelink.Node(uri='http://localhost:2333', password='youshallnotpass')]
-    await wavelink.Pool.connect(nodes=nodes, client=bot, cache_capacity=100)
-    
+    try:
+        nodes = [wavelink.Node(uri='http://localhost:2333', password='youshallnotpass')]
+        await wavelink.Pool.connect(nodes=nodes, client=bot, cache_capacity=100)
+    except Exception as e:
+        print(e)
+        
 #Launches Lavalink server alongside the bot
 def launch_music_server():
-    currDir = os.path.dirname(os.path.abspath(__file__))
-    serverPath = os.path.join(currDir,'Lavalink.jar')
-    subprocess.Popen(['java', '-jar', serverPath])
+    try:
+        currDir = os.path.dirname(os.path.abspath(__file__))
+        serverPath = os.path.join(currDir,'Lavalink.jar')
+        subprocess.Popen(['java', '-jar', serverPath])
+    except Exception as e:
+        print(e)
 launch_music_server()
 
 
