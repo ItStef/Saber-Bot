@@ -6,4 +6,5 @@ REQUIREMENTS TO RUN THE BOT:
 -Lavasrc plugin for Lavalink [https://github.com/topi314/LavaSrc]
 -.env file for your tokens
 
+
 The bot WILL NOT run on its own, those things are required to make the bot work.
