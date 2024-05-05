@@ -4,8 +4,6 @@ import aiohttp
 import os
 
 api_key = os.getenv('WEATHER_API_KEY')
-#api_key = 'f05c60ca36314a1e82b103655230804'
-#api_key = '1172378de6241c38735e68540c8634a0'
 
 class Weather(commands.Cog):
     
